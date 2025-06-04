@@ -4,16 +4,14 @@
     <div class="hero">
         <!-- Video Start -->
         <div class="hero-bg-video">
-            <!-- Selfhosted Video Start -->
-            <!-- <video autoplay muted loop id="myVideo"><source src="images/hero-bg-video.mp4" type="video/mp4"></video> -->
-            <video autoplay muted loop id="myVideo">
-                <source src="https://demo.awaikenthemes.com/assets/videos/rovex-video-1.mp4" type="video/mp4">
+            <!-- Optimized Video with poster and preload -->
+            <video autoplay muted loop id="myVideo" poster="{{ asset('assets/images/hero-bg.jpg') }}" preload="metadata"
+                playsinline>
+                <source src="{{ asset('assets/videos/csn-video-1.mp4') }}" type="video/mp4">
+                <!-- Fallback image for browsers that don't support video -->
+                <img src="{{ asset('assets/images/hero-bg.jpg') }}" alt="Hero background"
+                    style="width: 100%; height: 100%; object-fit: cover;">
             </video>
-            <!-- Selfhosted Video End -->
-
-            <!-- Youtube Video Start -->
-            <!-- <div id="herovideo" class="player" data-property="{videoURL:'74DWwSxsVSs',containment:'.hero-video', showControls:false, autoPlay:true, loop:true, vol:0, mute:false, startAt:0,  stopAt:296, opacity:1, addRaster:true, quality:'large', optimizeDisplay:true}"></div> -->
-            <!-- Youtube Video End -->
         </div>
         <!-- Video End -->
         <div class="container">
@@ -45,13 +43,17 @@
                         <div class="hero-image-box-1">
                             <div class="hero-img">
                                 <figure class="image-anime reveal">
-                                    <img src="{{ asset('assets/images/hero-img-1.jpg') }}" alt="">
+                                    <!-- Critical first image - load immediately -->
+                                    <img src="{{ asset('assets/images/hero-img-1.jpg') }}" alt="Creative design showcase"
+                                        loading="eager">
                                 </figure>
                             </div>
 
                             <div class="hero-img">
                                 <figure class="image-anime reveal">
-                                    <img src="{{ asset('assets/images/hero-img-2.jpg') }}" alt="">
+                                    <!-- Lazy load second image -->
+                                    <img class="lazy" data-src="{{ asset('assets/images/hero-img-2.jpg') }}"
+                                        alt="Design portfolio example" width="300" height="400" loading="lazy">
                                 </figure>
                             </div>
                         </div>
@@ -59,7 +61,9 @@
                         <div class="hero-image-box-2">
                             <div class="hero-img">
                                 <figure class="image-anime reveal">
-                                    <img src="{{ asset('assets/images/hero-img-3.jpg') }}" alt="">
+                                    <!-- Lazy load third image -->
+                                    <img class="lazy" data-src="{{ asset('assets/images/hero-img-3.jpg') }}"
+                                        alt="Creative strategy visualization" width="400" height="500" loading="lazy">
                                 </figure>
                             </div>
                         </div>
@@ -67,13 +71,17 @@
                         <div class="hero-image-box-1">
                             <div class="hero-img">
                                 <figure class="image-anime reveal">
-                                    <img src="{{ asset('assets/images/hero-img-4.jpg') }}" alt="">
+                                    <!-- Lazy load fourth image -->
+                                    <img class="lazy" data-src="{{ asset('assets/images/hero-img-4.jpg') }}"
+                                        alt="Brand identity design" width="300" height="400" loading="lazy">
                                 </figure>
                             </div>
 
                             <div class="hero-img">
                                 <figure class="image-anime reveal">
-                                    <img src="{{ asset('assets/images/hero-img-5.jpg') }}" alt="">
+                                    <!-- Lazy load fifth image -->
+                                    <img class="lazy" data-src="{{ asset('assets/images/hero-img-5.jpg') }}"
+                                        alt="Web design showcase" width="300" height="400" loading="lazy">
                                 </figure>
                             </div>
                         </div>
@@ -149,12 +157,15 @@
                         <div class="our-service-box tab-pane fade show active" id="01" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img src="{{ asset('assets/images/service-image-1.jpg') }}" alt="">
+                                    <!-- First service image - load immediately as it's visible -->
+                                    <img src="{{ asset('assets/images/service-image-1.jpg') }}"
+                                        alt="UI/UX Design services showcase" loading="eager">
                                 </figure>
                             </div>
                             <div class="service-box-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="UI/UX Design icon"
+                                        width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
                                     <h3><a href="services.html">UI/UX Design</a></h3>
@@ -172,12 +183,16 @@
                         <div class="our-service-box tab-pane fade" id="02" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img src="{{ asset('assets/images/service-image-2.jpg') }}" alt="">
+                                    <!-- Lazy load hidden tab images -->
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-2.jpg') }}"
+                                        alt="Web Development services showcase" width="600" height="400"
+                                        loading="lazy">
                                 </figure>
                             </div>
                             <div class="service-box-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="Web Development icon"
+                                        width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
                                     <h3><a href="services.html">Web Development</a></h3>
@@ -195,12 +210,14 @@
                         <div class="our-service-box tab-pane fade" id="03" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img src="{{ asset('assets/images/service-image-3.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-3.jpg') }}"
+                                        alt="3D Design services showcase" loading="lazy">
                                 </figure>
                             </div>
                             <div class="service-box-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="3D Design icon"
+                                        width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
                                     <h3><a href="services.html">3D Designs</a></h3>
@@ -218,12 +235,15 @@
                         <div class="our-service-box tab-pane fade" id="04" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img src="{{ asset('assets/images/service-image-4.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-4.jpg') }}"
+                                        alt="Digital Marketing Design services showcase" loading="lazy">
                                 </figure>
                             </div>
                             <div class="service-box-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}"
+                                        alt="Digital Marketing Design icon" width="60" height="60"
+                                        loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
                                     <h3><a href="services.html">Digital Marketing Design</a></h3>
@@ -241,12 +261,14 @@
                         <div class="our-service-box tab-pane fade" id="05" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img src="{{ asset('assets/images/service-image-5.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-5.jpg') }}"
+                                        alt="Motion Graphics services showcase" loading="lazy">
                                 </figure>
                             </div>
                             <div class="service-box-item">
                                 <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="Motion Graphics icon"
+                                        width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
                                     <h3><a href="services.html">Motion Graphics</a></h3>
@@ -296,7 +318,8 @@
                         <div class="work-image">
                             <a href="portfolio-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/work-image-1.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-1.jpg') }}"
+                                        alt="Stellar Tech Solutions portfolio project" loading="lazy">
                                 </figure>
                             </a>
                         </div>
@@ -307,7 +330,8 @@
                             </div>
                             <div class="work-btn">
                                 <a href="portfolio-single.html">
-                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
+                                        width="24" height="24" loading="lazy">
                                 </a>
                             </div>
                         </div>
@@ -321,7 +345,9 @@
                         <div class="work-image">
                             <a href="portfolio-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/work-image-2.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-2.jpg') }}"
+                                        alt="Green Wave Foods portfolio project" width="400" height="300"
+                                        loading="lazy">
                                 </figure>
                             </a>
                         </div>
@@ -331,8 +357,10 @@
                                 <p>We built a user-friendly Shopping platform for Green Wave Foods.</p>
                             </div>
                             <div class="work-btn">
-                                <a href="portfolio-single.html"><img src="{{ asset('assets/images/arrrow-light.svg') }}"
-                                        alt=""></a>
+                                <a href="portfolio-single.html">
+                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
+                                        width="24" height="24" loading="lazy">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -345,7 +373,9 @@
                         <div class="work-image">
                             <a href="portfolio-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/work-image-3.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-3.jpg') }}"
+                                        alt="Horizon Real Estate portfolio project" width="400" height="300"
+                                        loading="lazy">
                                 </figure>
                             </a>
                         </div>
@@ -356,7 +386,8 @@
                             </div>
                             <div class="work-btn">
                                 <a href="portfolio-single.html">
-                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="">
+                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
+                                        width="24" height="24" loading="lazy">
                                 </a>
                             </div>
                         </div>
@@ -398,7 +429,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-1.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-1.svg') }}"
+                                    alt="Figma design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>figma</h3>
@@ -410,7 +442,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="0.2s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-2.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-2.svg') }}"
+                                    alt="Framer design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>framer</h3>
@@ -422,7 +455,9 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="0.4s">
                             <div class="icon-box">
-                                <img src="{{ asset('images/icon-creative-tools-3.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-3.svg') }}"
+                                    alt="Adobe Illustrator design tool icon" width="60" height="60"
+                                    loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>illustrator</h3>
@@ -434,7 +469,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="0.6s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-4.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-4.svg') }}"
+                                    alt="Adobe XD design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>adobe xd</h3>
@@ -446,7 +482,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="0.8s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-5.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-5.svg') }}"
+                                    alt="Adobe InDesign design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>indesign</h3>
@@ -458,7 +495,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="1s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-6.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-6.svg') }}"
+                                    alt="Adobe Photoshop design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>photoshop</h3>
@@ -470,7 +508,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="1.2s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-7.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-7.svg') }}"
+                                    alt="Adobe Lightroom design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>lightroom</h3>
@@ -482,7 +521,8 @@
                         <!-- Creative Tool Item Start -->
                         <div class="creative-tool-item wow fadeInUp" data-wow-delay="1.4s">
                             <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-creative-tools-8.svg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/icon-creative-tools-8.svg') }}"
+                                    alt="Adobe InCopy design tool icon" width="60" height="60" loading="lazy">
                             </div>
                             <div class="creative-tool-item-content">
                                 <h3>incopy</h3>
@@ -515,8 +555,10 @@
                 <div class="col-lg-4">
                     <!-- Section Button Start -->
                     <div class="contact-now-circle">
-                        <a href="contact.html"><img src="{{ asset('assets/images/contact-circle.png') }}"
-                                alt=""></a>
+                        <a href="contact.html">
+                            <img class="lazy" data-src="{{ asset('assets/images/contact-circle.png') }}"
+                                alt="Contact us circular button" width="150" height="150" loading="lazy">
+                        </a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -528,14 +570,16 @@
                     <div class="how-it-work-images">
                         <!-- How Work Image Circle Start-->
                         <div class="how-work-image-circle">
-                            <img src="{{ asset('assets/images/how-work-image-circle.png') }}" alt="">
+                            <img class="lazy" data-src="{{ asset('assets/images/how-work-image-circle.png') }}"
+                                alt="Decorative circle element" loading="lazy">
                         </div>
                         <!-- How Work Image Circle End-->
 
                         <!-- How It Work Image Start-->
                         <div class="how-it-work-image">
                             <figure class="image-anime">
-                                <img src="{{ asset('assets/images/how-it-work-image.jpg') }}" alt="">
+                                <img class="lazy" data-src="{{ asset('assets/images/how-it-work-image.jpg') }}"
+                                    alt="Our methodology and work process visualization" loading="lazy">
                             </figure>
                         </div>
                         <!-- How It Work Image End-->
@@ -656,7 +700,9 @@
                         <div class="post-featured-image">
                             <a href="blog-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/post-1.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/post-1.jpg') }}"
+                                        alt="The Role of Color Psychology in Branding blog post" width="400"
+                                        height="250" loading="lazy">
                                 </figure>
                             </a>
                         </div>
@@ -700,7 +746,9 @@
                         <div class="post-featured-image">
                             <a href="blog-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/post-2.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/post-2.jpg') }}"
+                                        alt="How color Shades and Brand Identity blog post" width="400" height="250"
+                                        loading="lazy">
                                 </figure>
                             </a>
                         </div>
@@ -744,7 +792,9 @@
                         <div class="post-featured-image">
                             <a href="blog-single.html" data-cursor-text="View">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/post-3.jpg') }}" alt="">
+                                    <img class="lazy" data-src="{{ asset('assets/images/post-3.jpg') }}"
+                                        alt="Breaking Down the Design Process From Concept blog post" width="400"
+                                        height="250" loading="lazy">
                                 </figure>
                             </a>
                         </div>

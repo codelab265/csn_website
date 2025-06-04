@@ -1,40 +1,109 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Awaiken">
+    <meta name="description"
+        content="Professional design agency specializing in branding, web design, and creative strategies that elevate businesses.">
+    <meta name="keywords" content="design agency, branding, web design, UI/UX, creative strategy, digital marketing">
+    <meta name="author" content="CS&N">
+
+    <!-- Performance optimizations -->
+    <meta name="theme-color" content="#000000">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+
     <!-- Page Title -->
-    <title>Rovex - Design Agency HTML Template</title>
+    <title>CS&N - Creative Strategy &amp; Networking</title>
+
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-    <!-- Google Fonts Css-->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/css/custom.css') }}" as="style">
+    <link rel="preload" href="{{ asset('assets/js/jquery-3.7.1.min.js') }}" as="script">
+
+    <!-- Google Fonts with optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap"
         rel="stylesheet">
-    <!-- Bootstrap Css -->
+
+    <!-- Critical CSS - loaded synchronously -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
-    <!-- SlickNav Css -->
-    <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="stylesheet">
-    <!-- Swiper Css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
-    <!-- Font Awesome Icon Css-->
-    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" media="screen">
-    <!-- Animated Css -->
-    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
-    <!-- Magnific Popup Core Css File -->
-    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
-    <!-- Mouse Cursor Css File -->
-    <link rel="stylesheet" href="{{ asset('assets/css/mousecursor.css') }}">
-    <!-- Main Custom Css -->
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" media="screen">
+
+    <!-- Non-critical CSS - loaded asynchronously -->
+    <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="preload" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}" media="print"
+        onload="this.media='all'">
+    <link href="{{ asset('assets/css/all.min.css') }}" rel="preload" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link href="{{ asset('assets/css/animate.css') }}" rel="preload" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" media="print"
+        onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/css/mousecursor.css') }}" media="print" onload="this.media='all'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+        <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/mousecursor.css') }}">
+    </noscript>
+
+    <!-- Inline critical CSS for lazy loading -->
+    <style>
+        /* Lazy loading styles */
+        img.lazy {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        img.lazy.loaded {
+            opacity: 1;
+        }
+
+        /* Placeholder for lazy images */
+        img.lazy:not(.loaded) {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Video optimization */
+        video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Preload critical images */
+        .hero-images img:first-child {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +112,7 @@
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img src="images/loader.svg" alt=""></div>
+            <div id="loading-icon"><img src="{{ asset('assets/images/loader.svg') }}" alt=""></div>
         </div>
     </div>
     <!-- Preloader End -->
@@ -55,7 +124,7 @@
                 <div class="container">
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.svg" alt="Logo">
+                        <img src="{{ asset('assets/images/logo-full.png') }}" alt="Logo" style="width: 120px">
                     </a>
                     <!-- Logo End -->
 
@@ -115,7 +184,8 @@
                             <div class="about-footer">
                                 <!-- Footer Logo Start -->
                                 <div class="footer-logo">
-                                    <img src="images/footer-logo.svg" alt="">
+                                    <img src="{{ asset('assets/images/logo-s.png') }}" alt=""
+                                        style="width: 70px">
                                 </div>
                                 <!-- Footer Logo End -->
 
@@ -234,39 +304,80 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Jquery Library File -->
+    <!-- Critical JavaScript - loaded immediately -->
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
-    <!-- Bootstrap js file -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <!-- Validator js file -->
-    <script src="{{ asset('assets/js/validator.min.js') }}"></script>
-    <!-- SlickNav js file -->
-    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
-    <!-- Swiper js file -->
-    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
-    <!-- Counter js file -->
-    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
-    <!-- Isotop js file -->
-    <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
-    <!-- Magnific js file -->
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <!-- SmoothScroll -->
-    <script src="{{ asset('assets/js/SmoothScroll.js') }}"></script>
-    <!-- Parallax js -->
-    <script src="{{ asset('assets/js/parallaxie.js') }}"></script>
-    <!-- MagicCursor js file -->
-    <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/magiccursor.js') }}"></script>
-    <!-- Text Effect js file -->
-    <script src="{{ asset('assets/js/SplitText.js') }}"></script>
-    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
-    <!-- YTPlayer js File -->
-    <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
-    <!-- Wow js file -->
-    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-    <!-- Main Custom js file -->
-    <script src="{{ asset('assets/js/function.js') }}"></script>
+
+    <!-- Non-critical JavaScript - loaded with defer for better performance -->
+    <script src="{{ asset('assets/js/validator.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery.slicknav.js') }}" defer></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/isotope.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/SmoothScroll.js') }}" defer></script>
+    <script src="{{ asset('assets/js/parallaxie.js') }}" defer></script>
+    <script src="{{ asset('assets/js/gsap.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/magiccursor.js') }}" defer></script>
+    <script src="{{ asset('assets/js/SplitText.js') }}" defer></script>
+    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}" defer></script>
+
+    <!-- Main Custom js file - loaded last -->
+    <script src="{{ asset('assets/js/function.js') }}" defer></script>
+
+    <!-- Lazy loading script for images -->
+    <script>
+        // Intersection Observer for lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        if (img.dataset.srcset) {
+                            img.srcset = img.dataset.srcset;
+                            img.removeAttribute('data-srcset');
+                        }
+                        img.classList.remove('lazy');
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            // Observe all lazy images
+            document.addEventListener('DOMContentLoaded', () => {
+                const lazyImages = document.querySelectorAll('img.lazy');
+                lazyImages.forEach(img => imageObserver.observe(img));
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            document.addEventListener('DOMContentLoaded', () => {
+                const lazyImages = document.querySelectorAll('img.lazy');
+                lazyImages.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    if (img.dataset.srcset) {
+                        img.srcset = img.dataset.srcset;
+                        img.removeAttribute('data-srcset');
+                    }
+                    img.classList.remove('lazy');
+                    img.classList.add('loaded');
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
