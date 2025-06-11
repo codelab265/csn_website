@@ -2,41 +2,39 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ContactResource\Pages;
-use App\Filament\Resources\ContactResource\RelationManagers;
-use App\Models\Contact;
+use App\Filament\Resources\ProjectResource\Pages;
+use App\Filament\Resources\ProjectResource\RelationManagers;
+use App\Models\Project;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ContactResource extends Resource
+class ProjectResource extends Resource
 {
-    protected static ?string $model = Contact::class;
+    protected static ?string $model = Project::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-envelope';
-    protected static ?string $navigationLabel = 'Messages';
-    protected static ?string $label = 'Messages';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('fullname')
+                Forms\Components\TextInput::make('title')
                     ->required(),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required(),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required(),
-                Forms\Components\Textarea::make('message')
+                Forms\Components\Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
+                Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->directory('projects')
+                    ->required(),
+                Forms\Components\TextInput::make('link')
+                    ->url()
+                    ->required(),
             ]);
     }
 
@@ -44,12 +42,9 @@ class ContactResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('fullname')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -63,10 +58,6 @@ class ContactResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\Action::make('See Message')->icon('heroicon-o-eye')
-                    ->infolist([TextEntry::make('message')->label('Message')])
-                    ->modalWidth('md')
-                    ->color('warning'),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -80,7 +71,7 @@ class ContactResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageContacts::route('/'),
+            'index' => Pages\ManageProjects::route('/'),
         ];
     }
 }

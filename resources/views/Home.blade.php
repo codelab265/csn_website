@@ -276,88 +276,42 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <!-- Work Item Start -->
-                    <div class="work-item wow fadeInUp">
-                        <div class="work-image">
-                            <a href="portfolio-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-1.jpg') }}"
-                                        alt="Stellar Tech Solutions portfolio project" loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="work-body">
-                            <div class="work-content">
-                                <h3><a href="portfolio-single.html">stellar tech solutions</a></h3>
-                                <p>We redesigned Stellar Tech's website to enhance.</p>
-                            </div>
-                            <div class="work-btn">
-                                <a href="portfolio-single.html">
-                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
-                                        width="24" height="24" loading="lazy">
+                @foreach ($projects as $project)
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Work Item Start -->
+                        <div class="work-item wow fadeInUp">
+                            <div class="work-image">
+                                <a href="portfolio-single.html" data-cursor-text="View">
+                                    <figure class="image-anime">
+                                        <img class="lazy" data-src="{{ asset('storage/' . $project->image) }}"
+                                            alt="Stellar Tech Solutions portfolio project" loading="lazy">
+                                    </figure>
                                 </a>
                             </div>
+                            <div class="work-body">
+                                <div class="work-content">
+                                    <h3>
+                                        <a href="portfolio-single.html">
+                                            {{ $project->title }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ $project->description }}
+                                    </p>
+                                </div>
+                                <div class="work-btn">
+                                    <a href="portfolio-single.html">
+                                        <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
+                                            width="24" height="24" loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Work Item End -->
                     </div>
-                    <!-- Work Item End -->
-                </div>
+                @endforeach
 
-                <div class="col-lg-4 col-md-6">
-                    <!-- Work Item Start -->
-                    <div class="work-item wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="work-image">
-                            <a href="portfolio-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-2.jpg') }}"
-                                        alt="Green Wave Foods portfolio project" width="400" height="300"
-                                        loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="work-body">
-                            <div class="work-content">
-                                <h3><a href="portfolio-single.html">green wave foods</a></h3>
-                                <p>We built a user-friendly Shopping platform for Green Wave Foods.</p>
-                            </div>
-                            <div class="work-btn">
-                                <a href="portfolio-single.html">
-                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
-                                        width="24" height="24" loading="lazy">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Work Item End -->
-                </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <!-- Work Item Start -->
-                    <div class="work-item wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="work-image">
-                            <a href="portfolio-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/work-image-3.jpg') }}"
-                                        alt="Horizon Real Estate portfolio project" width="400" height="300"
-                                        loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="work-body">
-                            <div class="work-content">
-                                <h3><a href="portfolio-single.html">horizon real estate</a></h3>
-                                <p>We helped Horizon Real Estate establish a trusted brand identity.</p>
-                            </div>
-                            <div class="work-btn">
-                                <a href="portfolio-single.html">
-                                    <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
-                                        width="24" height="24" loading="lazy">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Work Item End -->
-                </div>
             </div>
         </div>
     </div>
@@ -388,143 +342,53 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp">
-                        <!-- Post Featured Image Start-->
-                        <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/post-1.jpg') }}"
-                                        alt="The Role of Color Psychology in Branding blog post" width="400"
-                                        height="250" loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image End -->
-
-                        <!-- Post Item Body Start -->
-                        <div class="post-item-body">
-                            <!-- Post Item Content Start -->
-                            <div class="post-item-content">
-                                <h2><a href="blog-single.html">The Role of Color Psychology in Branding</a></h2>
+                @foreach ($posts as $post)
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Post Item Start -->
+                        <div class="post-item wow fadeInUp">
+                            <!-- Post Featured Image Start-->
+                            <div class="post-featured-image">
+                                <a href="blog-single.html" data-cursor-text="View">
+                                    <figure class="image-anime">
+                                        <img class="lazy" data-src="{{ asset('assets/images/post-1.jpg') }}"
+                                            alt="The Role of Color Psychology in Branding blog post" width="400"
+                                            height="250" loading="lazy">
+                                    </figure>
+                                </a>
                             </div>
-                            <!-- Post Item Content End -->
+                            <!-- Post Featured Image End -->
 
-                            <!-- Post Item Footer Start -->
-                            <div class="post-item-footer">
-                                <!-- Post Item Tag Start -->
-                                <div class="post-item-meta">
-                                    <ul>
-                                        <li>27 dec, 2024</li>
-                                    </ul>
+                            <!-- Post Item Body Start -->
+                            <div class="post-item-body">
+                                <!-- Post Item Content Start -->
+                                <div class="post-item-content">
+                                    <h2><a href="blog-single.html">The Role of Color Psychology in Branding</a></h2>
                                 </div>
-                                <!-- Post Item Tag End -->
+                                <!-- Post Item Content End -->
 
-                                <!-- Post Item Readmore Button Start-->
-                                <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">read more</a>
+                                <!-- Post Item Footer Start -->
+                                <div class="post-item-footer">
+                                    <!-- Post Item Tag Start -->
+                                    <div class="post-item-meta">
+                                        <ul>
+                                            <li>27 dec, 2024</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Post Item Tag End -->
+
+                                    <!-- Post Item Readmore Button Start-->
+                                    <div class="post-item-btn">
+                                        <a href="blog-single.html" class="readmore-btn">read more</a>
+                                    </div>
+                                    <!-- Post Item Readmore Button End-->
                                 </div>
-                                <!-- Post Item Readmore Button End-->
+                                <!-- Post Item Footer End -->
                             </div>
-                            <!-- Post Item Footer End -->
+                            <!-- Post Item Body End -->
                         </div>
-                        <!-- Post Item Body End -->
+                        <!-- Post Item End -->
                     </div>
-                    <!-- Post Item End -->
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
-                        <!-- Post Featured Image Start-->
-                        <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/post-2.jpg') }}"
-                                        alt="How color Shades and Brand Identity blog post" width="400" height="250"
-                                        loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image End -->
-
-                        <!-- Post Item Body Start -->
-                        <div class="post-item-body">
-                            <!-- Post Item Content Start -->
-                            <div class="post-item-content">
-                                <h2><a href="blog-single.html">How color Shades and Brand Identity</a></h2>
-                            </div>
-                            <!-- Post Item Content End -->
-
-                            <!-- Post Item Footer Start -->
-                            <div class="post-item-footer">
-                                <!-- Post Item Tag Start -->
-                                <div class="post-item-meta">
-                                    <ul>
-                                        <li>27 dec, 2024</li>
-                                    </ul>
-                                </div>
-                                <!-- Post Item Tag End -->
-
-                                <!-- Post Item Readmore Button Start-->
-                                <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">read more</a>
-                                </div>
-                                <!-- Post Item Readmore Button End-->
-                            </div>
-                            <!-- Post Item Footer End -->
-                        </div>
-                        <!-- Post Item Body End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <!-- Post Item Start -->
-                    <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Post Featured Image Start-->
-                        <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="View">
-                                <figure class="image-anime">
-                                    <img class="lazy" data-src="{{ asset('assets/images/post-3.jpg') }}"
-                                        alt="Breaking Down the Design Process From Concept blog post" width="400"
-                                        height="250" loading="lazy">
-                                </figure>
-                            </a>
-                        </div>
-                        <!-- Post Featured Image End -->
-
-                        <!-- Post Item Body Start -->
-                        <div class="post-item-body">
-                            <!-- Post Item Content Start -->
-                            <div class="post-item-content">
-                                <h2><a href="blog-single.html">Breaking Down the Design Process From Concept</a></h2>
-                            </div>
-                            <!-- Post Item Content End -->
-
-                            <!-- Post Item Footer Start -->
-                            <div class="post-item-footer">
-                                <!-- Post Item Tag Start -->
-                                <div class="post-item-meta">
-                                    <ul>
-                                        <li>27 dec, 2024</li>
-                                    </ul>
-                                </div>
-                                <!-- Post Item Tag End -->
-
-                                <!-- Post Item Readmore Button Start-->
-                                <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">read more</a>
-                                </div>
-                                <!-- Post Item Readmore Button End-->
-                            </div>
-                            <!-- Post Item Footer End -->
-                        </div>
-                        <!-- Post Item Body End -->
-                    </div>
-                    <!-- Post Item End -->
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
