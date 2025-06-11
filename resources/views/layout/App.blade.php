@@ -132,18 +132,20 @@
                     <div class="collapse navbar-collapse main-menu">
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link" href="about.html">
+                                <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">
                                         Home
                                     </a>
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a>
-                                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact.html">Contact
+                                <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a>
+                                </li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link"
+                                        href="{{ route('contact') }}">Contact
                                         Us</a></li>
                             </ul>
                         </div>
                         <!-- Header Btn Start -->
                         <div class="header-btn">
-                            <a href="contact.html" class="btn-default">Contact Us</a>
+                            <a href="{{ route('contact') }}" class="btn-default">Contact Us</a>
                         </div>
                         <!-- Header Btn End -->
                     </div>
