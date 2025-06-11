@@ -11,4 +11,19 @@ class MainController extends Controller
     {
         return view('Home');
     }
+
+    public function about()
+    {
+        return view('About');
+    }
+
+    public function services()
+    {
+        return view('Services');
+    }
+
+    public function contact()
+    {
+        return view('Contact');
+    }
 }

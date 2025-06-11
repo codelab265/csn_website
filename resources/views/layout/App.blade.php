@@ -112,7 +112,7 @@
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img src="{{ asset('assets/images/loader.svg') }}" alt=""></div>
+            <div id="loading-icon"></div>
         </div>
     </div>
     <!-- Preloader End -->
@@ -185,14 +185,18 @@
                                 <!-- Footer Logo Start -->
                                 <div class="footer-logo">
                                     <img src="{{ asset('assets/images/logo-s.png') }}" alt=""
-                                        style="width: 70px">
+                                        style="width: 50px">
                                 </div>
                                 <!-- Footer Logo End -->
 
                                 <!-- About Footer Content Start -->
                                 <div class="about-footer-content">
-                                    <p>The creativity and professionalism shown by Rovex exceeded our expectations.
-                                        Their design transformed our brand, and the results speak for themselves.</p>
+                                    <p>
+                                        Founded by seasoned IT and cyber security professionals, CS&amp;N Limited was
+                                        created to
+                                        bridge the gap between emerging technologies and practical business
+                                        implementation.
+                                    </p>
                                 </div>
                                 <!-- Footer Social Links Start -->
                                 <div class="footer-social-links">
@@ -223,19 +227,7 @@
                             <!-- About Links End -->
                         </div>
 
-                        <div class="col-lg-3 col-md-4 col-6">
-                            <!-- About Links Start -->
-                            <div class="footer-links">
-                                <h3>our services</h3>
-                                <ul>
-                                    <li><a href="service-single.html">UI/UX Design</a></li>
-                                    <li><a href="service-single.html">3D Designs</a></li>
-                                    <li><a href="service-single.html">Web Development</a></li>
-                                    <li><a href="service-single.html">Motion Graphics</a></li>
-                                </ul>
-                            </div>
-                            <!-- About Links End -->
-                        </div>
+
 
                         <div class="col-lg-3 col-md-5">
                             <!-- About Links Start -->
@@ -249,7 +241,7 @@
                                             <i class="fa-solid fa-phone"></i>
                                         </div>
                                         <div class="footer-info-box-content">
-                                            <p><a href="tel:456852789">+01 456-852-789</a></p>
+                                            <p><a href="tel:456852789">+234 816 345 6789</a></p>
                                         </div>
                                     </div>
                                     <!-- Footer Info Box End -->
@@ -260,7 +252,7 @@
                                             <i class="fa-solid fa-envelope"></i>
                                         </div>
                                         <div class="footer-info-box-content">
-                                            <p><a href="#">info@domainname.com</a></p>
+                                            <p><a href="#">info@computersecuritynetworks.com</a></p>
                                         </div>
                                     </div>
                                     <!-- Footer Info Box End -->
@@ -271,7 +263,7 @@
                                             <i class="fa-solid fa-location-dot"></i>
                                         </div>
                                         <div class="footer-info-box-content">
-                                            <p>843, Apple LanePeoria</p>
+                                            <p>123, Apple Lane, Peoria, IL 61602</p>
                                         </div>
                                     </div>
                                     <!-- Footer Info Box End -->
