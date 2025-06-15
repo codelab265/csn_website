@@ -28,6 +28,21 @@ class MainController extends Controller
         return view('Services');
     }
 
+    public function service($service)
+    {
+        if ($service === 'cyber-security') {
+            return view('services.cyber-security');
+        } elseif ($service === 'enterprise-it-solutions') {
+            return view('services.enterprise-it-solutions');
+        } elseif ($service === 'web-development') {
+            return view('services.web-development');
+        } elseif ($service === 'software-solutions') {
+            return view('services.software-solutions');
+        } else {
+            return view('services.' . $service);
+        }
+    }
+
     public function contact()
     {
         return view('Contact');

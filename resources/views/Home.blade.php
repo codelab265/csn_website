@@ -33,7 +33,7 @@
 
                         <!-- Hero Button Start -->
                         <div class="hero-btn wow fadeInUp" data-wow-delay="0.4s">
-                            <a href="portfolio.html" class="btn-default">view our portfolio</a>
+                            <a href="{{ route('portfolio') }}" class="btn-default">view our portfolio</a>
                         </div>
                         <!-- Hero Button End -->
                     </div>
@@ -113,7 +113,7 @@
                 <div class="col-lg-6">
                     <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="services.html" class="btn-default">view all services</a>
+                        <a href="{{ route('services') }}" class="btn-default">view all services</a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -146,8 +146,8 @@
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="03-tab" data-bs-toggle="tab" data-bs-target="#03"
-                                        type="button" role="tab" aria-selected="false"><span>03</span>
+                                    <button class="nav-link" id="04-tab" data-bs-toggle="tab" data-bs-target="#04"
+                                        type="button" role="tab" aria-selected="false"><span>04</span>
                                         IT Recruiting
                                     </button>
                                 </li>
@@ -161,8 +161,8 @@
                             <div class="service-box-image">
                                 <figure>
                                     <!-- First service image - load immediately as it's visible -->
-                                    <img src="{{ asset('assets/images/service-1.jpg') }}" alt="Cyber Security Consultancy"
-                                        loading="eager">
+                                    <img src="{{ asset('assets/images/service-1.jpg') }}"
+                                        alt="Cyber Security Consultancy" loading="eager">
                                 </figure>
                             </div>
                             <div class="service-box-item">
@@ -171,7 +171,8 @@
                                         width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
-                                    <h3><a href="services.html">Cyber Security Consultancy</a></h3>
+                                    <h3><a href="{{ route('service', 'cyber-security') }}">Cyber Security Consultancy</a>
+                                    </h3>
                                     <p>
                                         From proactive threat detection to regulatory compliance and quantum-resistant
                                         encryption,
@@ -179,11 +180,12 @@
                                     </p>
                                 </div>
                                 <div class="service-box-item-btn">
-                                    <a href="services.html" class="readmore-btn">read more</a>
+                                    <a href="{{ route('service', 'cyber-security') }}" class="readmore-btn">read more</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Our Service Box End -->
+
 
                         <!-- Our Service Box Start -->
                         <div class="our-service-box tab-pane fade" id="02" role="tabpanel">
@@ -200,7 +202,8 @@
                                         width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
-                                    <h3><a href="services.html">Enterprise IT Solutions</a></h3>
+                                    <h3><a href="{{ route('service', 'enterprise-it-solutions') }}">Enterprise IT
+                                            Solutions</a></h3>
                                     <p>
                                         We design, deploy, and support scalable enterprise-grade infrastructure—covering
                                         networking, storage, virtualisation, and cloud integration—tailored to your
@@ -209,7 +212,8 @@
                                     </p>
                                 </div>
                                 <div class="service-box-item-btn">
-                                    <a href="services.html" class="readmore-btn">read more</a>
+                                    <a href="{{ route('service', 'enterprise-it-solutions') }}" class="readmore-btn">read
+                                        more</a>
                                 </div>
                             </div>
                         </div>
@@ -229,7 +233,7 @@
                                         width="60" height="60" loading="lazy">
                                 </div>
                                 <div class="service-box-item-content">
-                                    <h3><a href="services.html">Software Solutions</a></h3>
+                                    <h3><a href="{{ route('service', 'software-solutions') }}">Software Solutions</a></h3>
                                     <p>
                                         Custom-built, secure, and scalable software that aligns with your workflows and
                                         growth
@@ -239,7 +243,36 @@
                                     </p>
                                 </div>
                                 <div class="service-box-item-btn">
-                                    <a href="services.html" class="readmore-btn">read more</a>
+                                    <a href="{{ route('service', 'software-solutions') }}" class="readmore-btn">read
+                                        more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Our Service Box End -->
+                        <!-- Our Service Box Start -->
+                        <div class="our-service-box tab-pane fade" id="04" role="tabpanel">
+                            <div class="service-box-image">
+                                <figure>
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-2.jpg') }}"
+                                        alt="Software Solutions" loading="lazy">
+                                </figure>
+                            </div>
+                            <div class="service-box-item">
+                                <div class="icon-box">
+                                    <img src="{{ asset('assets/images/icon-service-1.svg') }}" alt="3D Design icon"
+                                        width="60" height="60" loading="lazy">
+                                </div>
+                                <div class="service-box-item-content">
+                                    <h3><a href="{{ route('service', 'it-recruiting') }}">IT Recruiting</a></h3>
+                                    <p>
+                                        We specialise in finding the right talent for your IT needs, whether you're
+                                        looking to
+                                        fill a
+                                        specific role or build a dedicated team.
+                                    </p>
+                                </div>
+                                <div class="service-box-item-btn">
+                                    <a href="{{ route('service', 'it-recruiting') }}" class="readmore-btn">read more</a>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +302,7 @@
                 <div class="col-lg-5">
                     <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="portfolio.html" class="btn-default">view all portfolio</a>
+                        <a href="{{ route('portfolio') }}" class="btn-default">view all portfolio</a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -281,7 +314,7 @@
                         <!-- Work Item Start -->
                         <div class="work-item wow fadeInUp">
                             <div class="work-image">
-                                <a href="portfolio-single.html" data-cursor-text="View">
+                                <a href="{{ route('project', $project->id) }}" data-cursor-text="View">
                                     <figure class="image-anime">
                                         <img class="lazy" data-src="{{ asset('storage/' . $project->image) }}"
                                             alt="Stellar Tech Solutions portfolio project" loading="lazy">
@@ -291,7 +324,7 @@
                             <div class="work-body">
                                 <div class="work-content">
                                     <h3>
-                                        <a href="portfolio-single.html">
+                                        <a href="{{ route('portfolio', $project->slug) }}">
                                             {{ $project->title }}
                                         </a>
                                     </h3>
@@ -300,7 +333,7 @@
                                     </p>
                                 </div>
                                 <div class="work-btn">
-                                    <a href="portfolio-single.html">
+                                    <a href="{{ route('portfolio', $project->id) }}">
                                         <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
                                             width="24" height="24" loading="lazy">
                                     </a>
@@ -335,7 +368,7 @@
                 <div class="col-lg-4">
                     <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="blog.html" class="btn-default">view all post</a>
+                        <a href="{{ route('blog') }}" class="btn-default">view all post</a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -348,7 +381,7 @@
                         <div class="post-item wow fadeInUp">
                             <!-- Post Featured Image Start-->
                             <div class="post-featured-image">
-                                <a href="blog-single.html" data-cursor-text="View">
+                                <a href="{{ route('blog', $post->slug) }}" data-cursor-text="View">
                                     <figure class="image-anime">
                                         <img class="lazy" data-src="{{ asset('assets/images/post-1.jpg') }}"
                                             alt="The Role of Color Psychology in Branding blog post" width="400"
@@ -362,7 +395,8 @@
                             <div class="post-item-body">
                                 <!-- Post Item Content Start -->
                                 <div class="post-item-content">
-                                    <h2><a href="blog-single.html">The Role of Color Psychology in Branding</a></h2>
+                                    <h2><a href="{{ route('blog', $post->slug) }}">The Role of Color Psychology in
+                                            Branding</a></h2>
                                 </div>
                                 <!-- Post Item Content End -->
 
