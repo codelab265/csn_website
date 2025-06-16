@@ -16,7 +16,7 @@
                                     style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                     T</div>
                             </div> <span>
-                                <div style="position:relative;display:inline-block;">
+                                <div style="position:relative;display:inline-block;margin-left: 15px;">
                                     <div
                                         style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                         R</div>
@@ -72,7 +72,7 @@
                         <div class="service-feature-image">
                             <figure class="image-anime reveal"
                                 style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-                                <img src="images/service-image-2.jpg" alt=""
+                                <img src="{{ asset('assets/images/service-4.jpg') }}" alt=""
                                     style="transform: translate(0px, 0px);">
                             </figure>
                         </div>
@@ -123,7 +123,7 @@
                                             style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                             s</div>
                                     </div> <span>
-                                        <div style="position:relative;display:inline-block;">
+                                        <div style="position:relative;display:inline-block;margin-left: 10px;">
                                             <div
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 I</div>
@@ -131,7 +131,7 @@
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 T</div>
                                         </div>
-                                        <div style="position:relative;display:inline-block;">
+                                        <div style="position:relative;display:inline-block;margin-left: 10px;">
                                             <div
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 r</div>
@@ -191,7 +191,7 @@
                                     <div class="service-benefits-img">
                                         <figure class="image-anime reveal"
                                             style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-                                            <img src="images/service-benefit-img-1.jpg" alt=""
+                                            <img src="{{ asset('assets/images/service-benefit-img-1.jpg') }}" alt=""
                                                 style="transform: translate(0px, 0px);">
                                         </figure>
                                     </div>
@@ -201,7 +201,7 @@
                                     <div class="service-benefits-img">
                                         <figure class="image-anime reveal"
                                             style="transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-                                            <img src="images/service-benefit-img-2.jpg" alt=""
+                                            <img src="{{ asset('assets/images/service-benefit-img-2.jpg') }}" alt=""
                                                 style="transform: translate(0px, 0px);">
                                         </figure>
                                     </div>
@@ -249,7 +249,7 @@
                                             style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                             t</div>
                                     </div> <span>
-                                        <div style="position:relative;display:inline-block;">
+                                        <div style="position:relative;display:inline-block;margin-left: 10px;">
                                             <div
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 p</div>
@@ -286,7 +286,8 @@
                                     <div class="design-process-item wow fadeInUp" data-wow-delay="0.2s"
                                         style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                                         <div class="icon-box">
-                                            <img src="images/icon-design-process-1.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-design-process-1.svg') }}"
+                                                alt="">
                                         </div>
 
                                         <div class="design-process-item-content">
@@ -300,7 +301,8 @@
                                     <div class="design-process-item wow fadeInUp" data-wow-delay="0.4s"
                                         style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                                         <div class="icon-box">
-                                            <img src="images/icon-design-process-2.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-design-process-2.svg') }}"
+                                                alt="">
                                         </div>
 
                                         <div class="design-process-item-content">
@@ -314,7 +316,8 @@
                                     <div class="design-process-item wow fadeInUp" data-wow-delay="0.6s"
                                         style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
                                         <div class="icon-box">
-                                            <img src="images/icon-design-process-3.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-design-process-3.svg') }}"
+                                                alt="">
                                         </div>
 
                                         <div class="design-process-item-content">
@@ -350,7 +353,7 @@
                                             style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                             d</div>
                                     </div>
-                                    <div style="position:relative;display:inline-block;">
+                                    <div style="position:relative;display:inline-block;margin-left: 10px;">
                                         <div
                                             style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                             y</div>
@@ -364,7 +367,7 @@
                                             style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                             r</div>
                                     </div> <span>
-                                        <div style="position:relative;display:inline-block;">
+                                        <div style="position:relative;display:inline-block;margin-left: 10px;">
                                             <div
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 a</div>
@@ -387,7 +390,7 @@
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 s</div>
                                         </div>
-                                        <div style="position:relative;display:inline-block;">
+                                        <div style="position:relative;display:inline-block;margin-left: 10px;">
                                             <div
                                                 style="position: relative; display: inline-block; opacity: 1; visibility: inherit; transform: translate(0px, 0px);">
                                                 h</div>

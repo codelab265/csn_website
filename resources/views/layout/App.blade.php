@@ -143,7 +143,7 @@
                                         Home
                                     </a>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a>
+                                <li class="nav-item"><a class="nav-link" href="/#services">Services</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                                 <li class="nav-item highlighted-menu"><a class="nav-link"
@@ -251,7 +251,7 @@
                                             <i class="fa-solid fa-phone"></i>
                                         </div>
                                         <div class="footer-info-box-content">
-                                            <p><a href="tel:456852789">+234 816 345 6789</a></p>
+                                            <p><a href="tel:+447519331999">+44 7519 331999</a></p>
                                         </div>
                                     </div>
                                     <!-- Footer Info Box End -->
@@ -268,14 +268,7 @@
                                     <!-- Footer Info Box End -->
 
                                     <!-- Footer Info Box Start -->
-                                    <div class="footer-info-box">
-                                        <div class="icon-box">
-                                            <i class="fa-solid fa-location-dot"></i>
-                                        </div>
-                                        <div class="footer-info-box-content">
-                                            <p>123, Apple Lane, Peoria, IL 61602</p>
-                                        </div>
-                                    </div>
+
                                     <!-- Footer Info Box End -->
                                 </div>
                                 <!-- Footer Contact Details End -->

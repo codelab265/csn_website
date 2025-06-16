@@ -24,12 +24,7 @@
                     <!-- Page Header Box Start -->
                     <div class="page-header-box">
                         <h1 class="text-anime-style-2" data-cursor="-opaque">Latest <span>blog</span></h1>
-                        <nav class="wow fadeInUp" data-wow-delay="0.25s">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('home') }}">home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">blog</li>
-                            </ol>
-                        </nav>
+
                     </div>
                     <!-- Page Header Box End -->
                 </div>
@@ -39,7 +34,7 @@
     <!-- Page Header End -->
 
     <!-- Blog Search and Filter Section Start -->
-    <div class="blog-filters bg-light py-4">
+    <div class="blog-filters bg-background py-4">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8">
@@ -49,7 +44,7 @@
                             <input type="text" name="search" class="form-control" placeholder="Search blog posts..."
                                 value="{{ $search }}" aria-label="Search blog posts">
                             <input type="hidden" name="year" value="{{ $year }}">
-                            <button class="btn btn-primary" type="submit">
+                            <button class="btn btn-default" type="submit">
                                 <i class="fa-solid fa-search"></i> Search
                             </button>
                         </div>

@@ -98,7 +98,7 @@
 
 
     <!-- Our Services Section Start -->
-    <div class="our-services">
+    <div class="our-services" id="services">
         <div class="container">
             <div class="row section-row">
                 <div class="col-lg-6">
@@ -113,7 +113,7 @@
                 <div class="col-lg-6">
                     <!-- Section Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="{{ route('services') }}" class="btn-default">view all services</a>
+                        <a href="#services" class="btn-default">view all services</a>
                     </div>
                     <!-- Section Button End -->
                 </div>
@@ -161,8 +161,8 @@
                             <div class="service-box-image">
                                 <figure>
                                     <!-- First service image - load immediately as it's visible -->
-                                    <img src="{{ asset('assets/images/service-1.jpg') }}"
-                                        alt="Cyber Security Consultancy" loading="eager">
+                                    <img src="{{ asset('assets/images/service-1.jpg') }}" alt="Cyber Security Consultancy"
+                                        loading="eager">
                                 </figure>
                             </div>
                             <div class="service-box-item">

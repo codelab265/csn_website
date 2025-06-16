@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="contact-info-content">
                                     <h3>phone number</h3>
-                                    <p>+987 654 3210</p>
+                                    <p>+44 7519 331999</p>
                                 </div>
                             </div>
                             <!-- Contact Info Item End -->
@@ -165,22 +165,13 @@
                                 </div>
                                 <div class="contact-info-content">
                                     <h3>email us</h3>
-                                    <p>info@domain.com</p>
+                                    <p>info@computersecuritynetworks.com</p>
                                 </div>
                             </div>
                             <!-- Contact Info Item End -->
 
                             <!-- Contact Info Item Start -->
-                            <div class="contact-info-item wow fadeInUp" data-wow-delay="0.5s"
-                                style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                                <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
-                                </div>
-                                <div class="contact-info-content">
-                                    <h3>address</h3>
-                                    <p>7676 Arden Avenue, Ginashire </p>
-                                </div>
-                            </div>
+
                             <!-- Contact Info Item End -->
                         </div>
                         <!-- Contact Info List End -->
