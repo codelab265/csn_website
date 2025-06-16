@@ -381,11 +381,10 @@
                         <div class="post-item wow fadeInUp">
                             <!-- Post Featured Image Start-->
                             <div class="post-featured-image">
-                                <a href="{{ route('blog', $post->slug) }}" data-cursor-text="View">
+                                <a href="{{ route('post', $post->slug) }}" data-cursor-text="View">
                                     <figure class="image-anime">
-                                        <img class="lazy" data-src="{{ asset('assets/images/post-1.jpg') }}"
-                                            alt="The Role of Color Psychology in Branding blog post" width="400"
-                                            height="250" loading="lazy">
+                                        <img class="lazy" data-src="{{ $post->image_url }}" alt="{{ $post->title }}"
+                                            width="400" height="250" loading="lazy">
                                     </figure>
                                 </a>
                             </div>
@@ -395,8 +394,8 @@
                             <div class="post-item-body">
                                 <!-- Post Item Content Start -->
                                 <div class="post-item-content">
-                                    <h2><a href="{{ route('blog', $post->slug) }}">The Role of Color Psychology in
-                                            Branding</a></h2>
+                                    <h2><a href="{{ route('post', $post->slug) }}">{{ $post->title }}</a></h2>
+                                    <p class="post-excerpt">{{ $post->excerpt }}</p>
                                 </div>
                                 <!-- Post Item Content End -->
 
@@ -405,14 +404,15 @@
                                     <!-- Post Item Tag Start -->
                                     <div class="post-item-meta">
                                         <ul>
-                                            <li>27 dec, 2024</li>
+                                            <li>{{ $post->formatted_date }}</li>
+                                            <li>{{ $post->reading_time }} min read</li>
                                         </ul>
                                     </div>
                                     <!-- Post Item Tag End -->
 
                                     <!-- Post Item Readmore Button Start-->
                                     <div class="post-item-btn">
-                                        <a href="blog-single.html" class="readmore-btn">read more</a>
+                                        <a href="{{ route('post', $post->slug) }}" class="readmore-btn">read more</a>
                                     </div>
                                     <!-- Post Item Readmore Button End-->
                                 </div>
@@ -427,4 +427,26 @@
         </div>
     </div>
     <!-- Our Blog Section End -->
+
+    <style>
+        .post-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .post-item-meta ul {
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .post-item-meta li {
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
 @endsection

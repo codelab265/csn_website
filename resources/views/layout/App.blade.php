@@ -24,6 +24,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
 
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{ config('app.name') }} Blog RSS Feed"
+        href="{{ route('blog.rss') }}">
+
+    <!-- Additional Meta Tags -->
+    @stack('meta')
+
     <!-- Preload critical resources -->
     <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style">
     <link rel="preload" href="{{ asset('assets/css/custom.css') }}" as="style">
@@ -138,6 +145,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About Us</a>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Services</a>
                                 </li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">Blog</a></li>
                                 <li class="nav-item highlighted-menu"><a class="nav-link"
                                         href="{{ route('contact') }}">Contact
                                         Us</a></li>

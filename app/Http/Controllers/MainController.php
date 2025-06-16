@@ -65,4 +65,107 @@ class MainController extends Controller
         }
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
+
+    /**
+     * Display the blog index page with search, filtering, and pagination.
+     */
+    public function blog(Request $request)
+    {
+        $search = $request->get('search');
+        $year = $request->get('year');
+        $perPage = 10; // Posts per page
+
+        $posts = Post::query()
+            ->search($search)
+            ->byYear($year)
+            ->published()
+            ->paginate($perPage)
+            ->withQueryString(); // Preserve query parameters in pagination links
+
+        $availableYears = Post::getAvailableYears();
+
+        return view('blog.index', compact('posts', 'search', 'year', 'availableYears'));
+    }
+
+    /**
+     * Display a single blog post.
+     */
+    public function post(Request $request, string $slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $relatedPosts = $post->getRelatedPosts(3);
+
+        // Get previous and next posts
+        $previousPost = Post::where('created_at', '<', $post->created_at)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        $nextPost = Post::where('created_at', '>', $post->created_at)
+            ->orderBy('created_at', 'asc')
+            ->first();
+
+        return view('blog.show', compact('post', 'relatedPosts', 'previousPost', 'nextPost'));
+    }
+
+    /**
+     * Display the portfolio page.
+     */
+    public function portfolio()
+    {
+        $projects = Project::latest()->paginate(12);
+        return view('portfolio.index', compact('projects'));
+    }
+
+    /**
+     * Display a single project.
+     */
+    public function project(string $slug)
+    {
+        // For now, we'll use ID since Project model doesn't have slug
+        $project = Project::findOrFail($slug);
+        return view('portfolio.show', compact('project'));
+    }
+
+    /**
+     * Display blog archive by year and optionally by month.
+     */
+    public function archive(Request $request, int $year, ?int $month = null)
+    {
+        $query = Post::whereYear('created_at', $year);
+
+        if ($month) {
+            $query->whereMonth('created_at', $month);
+        }
+
+        $posts = $query->published()->paginate(10);
+        $availableYears = Post::getAvailableYears();
+
+        $archiveTitle = $month
+            ? date('F Y', mktime(0, 0, 0, $month, 1, $year))
+            : $year;
+
+        return view('blog.archive', compact('posts', 'year', 'month', 'archiveTitle', 'availableYears'));
+    }
+
+    /**
+     * Generate RSS feed for blog posts.
+     */
+    public function rss()
+    {
+        $posts = Post::published()->limit(20)->get();
+
+        return response()->view('blog.rss', compact('posts'))
+            ->header('Content-Type', 'application/rss+xml; charset=UTF-8');
+    }
+
+    /**
+     * Generate XML sitemap.
+     */
+    public function sitemap()
+    {
+        $posts = Post::published()->get();
+
+        return response()->view('sitemap', compact('posts'))
+            ->header('Content-Type', 'application/xml; charset=UTF-8');
+    }
 }
