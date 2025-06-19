@@ -223,7 +223,7 @@
                         <div class="our-service-box tab-pane fade" id="03" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-2.jpg') }}"
+                                    <img class="lazy" data-src="{{ asset('assets/images/software-2.jpg') }}"
                                         alt="Software Solutions" loading="lazy">
                                 </figure>
                             </div>
@@ -253,7 +253,7 @@
                         <div class="our-service-box tab-pane fade" id="04" role="tabpanel">
                             <div class="service-box-image">
                                 <figure>
-                                    <img class="lazy" data-src="{{ asset('assets/images/service-image-2.jpg') }}"
+                                    <img class="lazy" data-src="{{ asset('assets/images/service-4.jpg') }}"
                                         alt="Software Solutions" loading="lazy">
                                 </figure>
                             </div>
