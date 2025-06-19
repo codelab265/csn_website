@@ -112,8 +112,8 @@ class MainController extends Controller
      */
     public function portfolio()
     {
-        $projects = Project::latest()->paginate(12);
-        return view('portfolio.index', compact('projects'));
+        $projects = Project::latest()->get();
+        return view('Projects', compact('projects'));
     }
 
     /**

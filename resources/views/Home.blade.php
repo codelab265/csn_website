@@ -294,7 +294,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">our work</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque">Our design <span>masterpieces</span></h2>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">Our Project <span>masterpieces</span></h2>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -314,7 +314,7 @@
                         <!-- Work Item Start -->
                         <div class="work-item wow fadeInUp">
                             <div class="work-image">
-                                <a href="{{ route('project', $project->id) }}" data-cursor-text="View">
+                                <a href="{{ $project->link }}" target="blank" data-cursor-text="View">
                                     <figure class="image-anime">
                                         <img class="lazy" data-src="{{ asset('storage/' . $project->image) }}"
                                             alt="Stellar Tech Solutions portfolio project" loading="lazy">
@@ -324,7 +324,7 @@
                             <div class="work-body">
                                 <div class="work-content">
                                     <h3>
-                                        <a href="{{ route('portfolio', $project->slug) }}">
+                                        <a href="{{ $project->link }}" target="blank">
                                             {{ $project->title }}
                                         </a>
                                     </h3>
@@ -333,7 +333,7 @@
                                     </p>
                                 </div>
                                 <div class="work-btn">
-                                    <a href="{{ route('portfolio', $project->id) }}">
+                                    <a href="{{ $project->link }}" target="blank">
                                         <img src="{{ asset('assets/images/arrrow-light.svg') }}" alt="View project arrow"
                                             width="24" height="24" loading="lazy">
                                     </a>

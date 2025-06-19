@@ -228,10 +228,10 @@
                             <div class="footer-links">
                                 <h3>quick links</h3>
                                 <ul>
-                                    <li><a href="index-2.html">home</a></li>
-                                    <li><a href="about.html">about us</a></li>
-                                    <li><a href="team.html">team</a></li>
-                                    <li><a href="portfolio.html">our portfolio</a></li>
+                                    <li><a href="{{ route('home') }}">home</a></li>
+                                    <li><a href="{{ route('about') }}">about us</a></li>
+                                    <li><a href="{{ route('blog') }}">Blog</a></li>
+                                    <li><a href="{{ route('contact') }}">contact us</a></li>
                                 </ul>
                             </div>
                             <!-- About Links End -->
