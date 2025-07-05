@@ -38,6 +38,7 @@ class PostResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->maxSize(1024)
                     ->directory('posts')
                     ->required(),
             ]);
