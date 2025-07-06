@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\NewsletterController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,6 +18,10 @@ Route::get('/blog.rss', [MainController::class, 'rss'])->name('blog.rss');
 Route::get('/sitemap.xml', [MainController::class, 'sitemap'])->name('sitemap');
 Route::get('/portfolio', [MainController::class, 'portfolio'])->name('portfolio');
 Route::get('/portfolio/{slug}', [MainController::class, 'project'])->name('project');
+
+// Newsletter routes
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/newsletter/unsubscribe/{token}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

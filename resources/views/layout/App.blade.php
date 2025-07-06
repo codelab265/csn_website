@@ -168,6 +168,77 @@
 
     @yield('content')
 
+    <!-- News & Updates Section Start -->
+    <section class="news-updates-section bg-section">
+        <div class="container">
+            <div class="news-updates-content">
+                <div class="row align-items-center" style="padding-right: 15px; padding-left: 15px;">
+                    <div class="col-lg-6 col-md-12">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                                Stay Updated
+                            </h3>
+                            <h2 class="wow fadeInUp" data-wow-delay="0.25s"
+                                style="visibility: visible; animation-name: fadeInUp; animation-delay: 0.25s;">
+                                Latest <span>Insights</span> & Updates
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.5s"
+                                style="visibility: visible; animation-name: fadeInUp; animation-delay: 0.5s;">
+                                Get the latest cybersecurity insights, industry trends, and technology updates delivered
+                                directly to your inbox.
+                            </p>
+                        </div>
+                        <!-- Section Title End -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <!-- Newsletter Form Start -->
+                        <div class="newsletter-form wow fadeInUp" data-wow-delay="0.75s"
+                            style="visibility: visible; animation-name: fadeInUp; animation-delay: 0.75s;">
+                            <form method="POST" action="{{ route('newsletter.subscribe') ?? '#' }}"
+                                class="newsletter-subscription-form" id="newsletterForm">
+                                @csrf
+                                <div class="newsletter-input-group">
+                                    <input type="email" name="email" class="newsletter-input"
+                                        placeholder="Enter your email address" required
+                                        aria-label="Email address for newsletter subscription">
+                                    <button type="submit" class="newsletter-btn">
+                                        <span>Subscribe</span>
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Newsletter Features Start -->
+                            <div class="newsletter-features">
+                                <div class="newsletter-feature">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    <span>Cybersecurity Insights</span>
+                                </div>
+                                <div class="newsletter-feature">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    <span>Industry Trends</span>
+                                </div>
+                                <div class="newsletter-feature">
+                                    <i class="fa-solid fa-lightbulb"></i>
+                                    <span>Expert Tips</span>
+                                </div>
+                                <div class="newsletter-feature">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span>Weekly Updates</span>
+                                </div>
+                            </div>
+                            <!-- Newsletter Features End -->
+
+                        </div>
+                        <!-- Newsletter Form End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News & Updates Section End -->
     <!-- Footer Section Start -->
     <footer class="footer-section">
         <div class="footer-box bg-section">
@@ -322,6 +393,126 @@
 
     <!-- Main Custom js file - loaded last -->
     <script src="{{ asset('assets/js/function.js') }}" defer></script>
+
+    <!-- Newsletter form handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Newsletter form submission handling
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    const submitBtn = this.querySelector('.newsletter-btn');
+                    const originalText = submitBtn.innerHTML;
+
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Subscribing...';
+                    submitBtn.disabled = true;
+
+                    // Reset after 3 seconds if no response
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                });
+            }
+
+            // Show success/error messages
+            @if (session('newsletter_success'))
+                showNotification('{{ session('newsletter_success') }}', 'success');
+            @endif
+
+            @if (session('newsletter_error'))
+                showNotification('{{ session('newsletter_error') }}', 'error');
+            @endif
+
+            @if (session('newsletter_info'))
+                showNotification('{{ session('newsletter_info') }}', 'info');
+            @endif
+        });
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `newsletter-notification newsletter-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fa-solid ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--accent-color)' : type === 'error' ? 'var(--error-color)' : 'var(--primary-color)'};
+                color: var(--bg-color);
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                z-index: 9999;
+                max-width: 400px;
+                animation: slideInRight 0.3s ease-out;
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideOutRight 0.3s ease-in';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
+    </script>
+
+    <!-- Add notification animations -->
+    <style>
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+        }
+    </style>
 
     <!-- Lazy loading script for images -->
     <script>
